@@ -28,18 +28,23 @@ class Password(models.Model):
     )
     category = models.ForeignKey(
         'Category',
-        on_delete=models.PROTECT,
-        null=True
+        on_delete=models.PROTECT
     )
 
     objects = models.Manager()
     idx = IdManager()
 
     def __str__(self) -> str:
-        return f'Запись: {self.title}'
+        return self.title
 
     def get_absolute_url(self):
         return reverse('pass', kwargs={'pass_slug': self.slug})
+
+    class Meta:
+        ordering = ('-time_create',)
+        indexes = [
+            models.Index(fields=['-time_create'])
+        ]
 
 
 class Category(models.Model):
