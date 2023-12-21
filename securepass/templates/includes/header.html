@@ -1,0 +1,38 @@
+{% load static %}
+{% load django_bootstrap5 %}
+<header>
+  <nav class="navbar navbar-expand-lg" style="background-image: url('{% static "img/navbar.jpg" %}'); background-size: cover;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}">
+        <img src="{% static 'img/logo.png' %}" width="50" height="50" class="d-inline-block align-top" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item mx-2">
+            <a class="btn btn-outline-info rounded-pill" href="{% url 'home' %}" role="button">Хранилище паролей</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="btn btn-outline-info rounded-pill" href="{% url 'generator' %}" role="button">Генератор паролей</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="btn btn-outline-info rounded-pill" href="{% url 'about' %}" role="button">О сайте</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2 big-input" type="search" placeholder="Поиск" aria-label="Поиск">
+          <style>
+            .big-input {
+               width: 600px;
+               height: 40px;
+               font-size: 16px;
+            }
+            </style>
+          <button class="btn btn-outline-warning" type="submit">Поиск</button>
+       </form>
+      </div>
+    </div>
+  </nav>
+</header>

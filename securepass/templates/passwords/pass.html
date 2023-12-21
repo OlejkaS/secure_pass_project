@@ -1,0 +1,11 @@
+{% extends "base.html" %}'
+{% block title %}
+{% endblock %}
+{% block content %}
+    <h1>{{ title }}</h1>
+    <h5>{{ username|linebreaks }}</h5>
+    <h5>{{ time_create|linebreaks }}</h5>
+{% for pass in passw %}
+<a class="btn btn-info rounded-pill" href="{{ pass.get_absolute_url }}" role="button">Открыть данные для {{ pass.title }}</a>
+{% endfor %}
+{% endblock %}
